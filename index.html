@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <title>YoyBuy spreadsheet – kategorie, zdjęcia QC i wysyłka do Polski</title>
+  <meta name="description" content="YoyBuy spreadsheet po polsku. Przeglądaj 10 kategorii HipobuyFind, porównuj rozmiary i zdjęcia QC oraz oszacuj koszt dostawy do Polski.">
+  <style>
+    :root{color-scheme:light;--paper:#f7f4ec;--ink:#172248;--muted:#4b5370;--blue:#2545b8;--line:#d1d4df;--card:#fff;--soft:#e6ecff;--width:72rem}
+    *,*::before,*::after{box-sizing:border-box}
+    body{margin:0;background:var(--paper);color:var(--ink);font:1rem/1.65 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+    h1,h2,h3,p,figure{margin:0}
+    h1,h2,h3{line-height:1.15;text-wrap:balance}
+    h1{font-size:clamp(2.55rem,7vw,5.65rem);letter-spacing:-.065em;overflow-wrap:anywhere}
+    h2{font-size:clamp(1.75rem,4vw,2.85rem);letter-spacing:-.045em}
+    h3{font-size:1.28rem;letter-spacing:-.025em}
+    a{color:var(--blue);text-underline-offset:.2em}
+    :focus-visible{outline:3px solid var(--blue);outline-offset:4px}
+    .wrap{width:min(var(--width),calc(100% - 2rem));margin-inline:auto}
+    .top{border-bottom:1px solid var(--line)}
+    .top .wrap,.foot .wrap{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:.4rem 1rem;padding-block:.9rem}
+    .logo{font-weight:800}
+    .note,.eyebrow{color:var(--muted);font-size:.84rem}
+    .eyebrow{font-weight:750;letter-spacing:.095em;text-transform:uppercase}
+    .hero{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);gap:clamp(1.25rem,4vw,3.5rem);align-items:center;padding-block:clamp(1.8rem,5vw,4rem) 1.75rem}
+    .hero h1{margin:.45rem 0 .85rem}
+    .lead{max-width:53ch;font-size:clamp(1.06rem,2vw,1.23rem)}
+    .hero .note{margin-top:.8rem}
+    .hero-photo{overflow:hidden;border-radius:1.2rem;background:var(--soft)}
+    .hero-photo img{width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;display:block}
+    figcaption{padding:.55rem .8rem;font-size:.86rem}
+    .button{display:inline-flex;align-items:center;min-height:44px;margin-top:1.15rem;padding:.55rem 1rem;border-radius:.55rem;background:var(--blue);color:#fff;font-weight:720;text-decoration:none}
+    .button:hover{background:#17338d}
+    .section{padding-block:clamp(1.5rem,4vw,2.8rem);border-top:1px solid var(--line)}
+    .section h2{margin:.25rem 0 .7rem}
+    .section>p{max-width:65ch}
+    .categories{list-style:none;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:.6rem;padding:0;margin:1rem 0 0}
+    .categories a{display:flex;justify-content:space-between;align-items:center;gap:.3rem;min-height:3.65rem;height:100%;padding:.55rem .7rem;border:1px solid var(--line);border-radius:.65rem;background:var(--card);color:var(--ink);font-size:.94rem;font-weight:720;text-decoration:none}
+    .categories a:hover{background:var(--soft);border-color:var(--blue)}
+    .gallery,.guides{display:grid;gap:.75rem;margin-top:1rem}
+    .gallery{grid-template-columns:repeat(4,minmax(0,1fr))}
+    .gallery figure,.guides article{overflow:hidden;border:1px solid var(--line);border-radius:.85rem;background:var(--card)}
+    .gallery img{display:block;width:100%;height:auto;aspect-ratio:1;object-fit:contain;background:#f3f3f5}
+    .gallery figcaption span{display:block;color:var(--muted)}
+    .guides{grid-template-columns:repeat(2,minmax(0,1fr))}
+    .guides article{padding:clamp(.9rem,2vw,1.35rem)}
+    .guides p{margin-top:.65rem}
+    .guides ul{margin:.55rem 0 0;padding-inline-start:1.25rem}
+    .guides li+li{margin-top:.22rem}
+    .faq{max-width:53rem;margin-top:1rem}
+    details{border-bottom:1px solid var(--line);padding:.15rem 0}
+    summary{padding:.65rem .25rem;min-height:44px;cursor:pointer;font-weight:750}
+    details p{padding:0 .25rem .8rem;max-width:70ch}
+    .foot{border-top:1px solid var(--line);background:var(--soft)}
+    @media(max-width:52rem){.categories{grid-template-columns:repeat(3,minmax(0,1fr))}}
+    @media(max-width:40rem){.hero,.guides{grid-template-columns:1fr}.hero-photo{max-width:32rem}.gallery,.categories{grid-template-columns:repeat(2,minmax(0,1fr))}}
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@graph":[
+      {
+        "@type":"WebPage",
+        "name":"YoyBuy spreadsheet – kategorie, zdjęcia QC i wysyłka do Polski",
+        "description":"YoyBuy spreadsheet po polsku. Przeglądaj 10 kategorii HipobuyFind, porównuj rozmiary i zdjęcia QC oraz oszacuj koszt dostawy do Polski.",
+        "inLanguage":"pl"
+      },
+      {
+        "@type":"FAQPage",
+        "inLanguage":"pl",
+        "mainEntity":[
+          {"@type":"Question","name":"Co oznacza YoyBuy spreadsheet?","acceptedAnswer":{"@type":"Answer","text":"To określenie listy odnośników i notatek o produktach, używanej do porównywania ofert przed zakupem. Ten poradnik odsyła do kategorii HipobuyFind."}},
+          {"@type":"Question","name":"Co zrobić, gdy link do produktu przestał działać?","acceptedAnswer":{"@type":"Answer","text":"Wróć do właściwej kategorii i wyszukaj pełną nazwę lub kod modelu. W nowej ofercie porównaj sprzedawcę, zdjęcia i dostępny wariant."}},
+          {"@type":"Question","name":"Czy zdjęcie QC potwierdza autentyczność produktu?","acceptedAnswer":{"@type":"Answer","text":"Nie. Zdjęcie QC pomaga ocenić widoczne szczegóły egzemplarza, takie jak kolor, szwy i oznaczenie rozmiaru. Pochodzenie produktu wymaga osobnego potwierdzenia."}},
+          {"@type":"Question","name":"Jak oszacować koszt wysyłki do Polski?","acceptedAnswer":{"@type":"Answer","text":"Wpisz kraj dostawy oraz wagę i wymiary spakowanej przesyłki do kalkulatora przewoźnika lub pośrednika. Do wyceny dodaj pozostałe koszty zakupu i sprawdź możliwe opłaty importowe."}},
+          {"@type":"Question","name":"Jak porównać rozmiary podane przez dwóch sprzedawców?","acceptedAnswer":{"@type":"Answer","text":"Użyj centymetrów i porównaj ten sam rodzaj pomiaru. Długość wkładki zestaw z długością wkładki, a szerokość bluzy mierzonej na płasko z analogicznym wymiarem."}}
+        ]
+      }
+    ]
+  }
+  </script>
+<link rel="canonical" href="https://kakobuyfinds.github.io/qcskq/">
+</head>
+<body>
+  <!-- index.html. Bezpośrednia strona wyników Google była niedostępna. Punktem odniesienia było dziesięć domen z dostępnych wyników wyszukiwania, z wykorzystaniem opisów wyników tam, gdzie nie otworzyła się strona. Zdjęcia korzystają z zewnętrznych adresów, których ładowania nie udało się bezpośrednio potwierdzić. -->
+  <header class="top">
+    <div class="wrap">
+      <a class="logo" href="https://www.hipobuyfind.com">hipobuyfind.com</a>
+      <span class="note">Poradnik zakupowy dla czytelników z Polski</span>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="hero" aria-labelledby="tytul">
+      <div>
+        <p class="eyebrow">Katalog i poradnik zakupowy</p>
+        <h1 id="tytul">YoyBuy spreadsheet</h1>
+        <p class="lead">Wybierz kategorię w HipobuyFind i porównaj oferty, zanim zapiszesz produkt. Sprawdź wymiary, poproś o zdjęcie wybranego wariantu i policz, ile wyniesie cały zakup z dostawą do Polski.</p>
+        <a class="button" href="https://www.hipobuyfind.com">Otwórz katalog HipobuyFind</a>
+        <p class="note">Niezależny poradnik. Fotografie pokazują przykładowe modele.</p>
+      </div>
+      <figure class="hero-photo">
+        <img src="https://static.nike.com/a/images/t_PDP_936_v1/f_auto%2Cq_auto%3Aeco/33533fe2-1157-4001-896e-1803b30659c8/AIR%2BFORCE%2B1%2B%2707.png" width="936" height="702" loading="eager" fetchpriority="high" alt="Biały niski sneaker Nike Air Force 1 ’07">
+        <figcaption>Nike Air Force 1 ’07 · Przykład obuwia</figcaption>
+      </figure>
+    </section>
+
+    <nav class="section" aria-labelledby="kategorie">
+      <p class="eyebrow">01 / Katalog</p>
+      <h2 id="kategorie">Kategorie produktów</h2>
+      <ul class="categories">
+        <li><a href="https://hipobuyfind.com/category-911-Shoes.html">Buty <span aria-hidden="true">↗</span></a></li>
+        <li><a href="https://hipobuyfind.com/category-912-Hoodies%2FSweaters.html">Bluzy i swetry <span aria-hidden="true">↗</span></a></li>
+        <li><a href="https://hipobuyfind.com/category-913-T-Shirts.html">T-shirty <span aria-hidden="true">↗</span></a></li>
+        <li><a href="https://hipobuyfind.com/category-914-Jackets.html">Kurtki <span aria-hidden="true">↗</span></a></li>
+        <li><a href="https://hipobuyfind.com/category-915-Pants%2FShorts.html">Spodnie i szorty <span aria-hidden="true">↗</span></a></li>
+        <li><a href="https://hipobuyfind.com/category-916-Headwear.html">Nakrycia głowy <span aria-hidden="true">↗</span></a></li>
+        <li><a href="https://hipobuyfind.com/category-917-Sets.html">Komplety <span aria-hidden="true">↗</span></a></li>
+        <li><a href="https://hipobuyfind.com/category-918-underwear%2Funderpants.html">Bielizna <span aria-hidden="true">↗</span></a></li>
+        <li><a href="https://hipobuyfind.com/category-919-Jersey.html">Koszulki sportowe <span aria-hidden="true">↗</span></a></li>
+        <li><a href="https://hipobuyfind.com/category-920-Accessories.html">Akcesoria <span aria-hidden="true">↗</span></a></li>
+      </ul>
+    </nav>
+
+    <section class="section" aria-labelledby="detale">
+      <p class="eyebrow">02 / Detale</p>
+      <h2 id="detale">Na co patrzeć na zdjęciach</h2>
+      <div class="gallery">
+        <figure>
+          <img src="https://eu.louisvuitton.com/images/is/image/lv/1/PP_VP_L/louis-vuitton-monogram-denim-jacket--FVJA29EFY610_PM2_Front%20view.png?hei=480&amp;wid=480" width="480" height="480" loading="lazy" decoding="async" alt="Niebieska kurtka dżinsowa Louis Vuitton z monogramem, widok z przodu">
+          <figcaption><strong>Louis Vuitton</strong><span>Sprawdź długość rękawa i ułożenie szwów.</span></figcaption>
+        </figure>
+        <figure>
+          <img src="https://images.laced.com/products/ac31c2a9-ec4d-49f1-ab17-74e1e8b561b7.jpg?fill=solid&amp;fit=fill&amp;h=315&amp;w=600" width="600" height="315" loading="lazy" decoding="async" alt="Brązowa czapka Gucci Jumbo GG z zakrzywionym daszkiem">
+          <figcaption><strong>Gucci</strong><span>Sprawdź zakres regulacji obwodu czapki.</span></figcaption>
+        </figure>
+        <figure>
+          <img src="https://assets.hermes.com/is/image/hermesproduct/armreif-clic-hh--703203FB2M-front-wm-1-0-0-1000-1000_g.jpg?wid=480&amp;hei=480" width="480" height="480" loading="lazy" decoding="async" alt="Pomarańczowa bransoletka Hermès z zapięciem w kształcie litery H">
+          <figcaption><strong>Hermès</strong><span>Porównaj obwód wewnętrzny i rodzaj zapięcia.</span></figcaption>
+        </figure>
+        <figure>
+          <img src="https://images.laced.com/products/b1ffb8fd-846b-4578-a7b1-6b0228a99fbd.jpg?auto=format&amp;fit=max&amp;q=75&amp;w=480" width="480" height="480" loading="lazy" decoding="async" alt="Biały niski sneaker Dior B27 z perforowanym panelem bocznym">
+          <figcaption><strong>Dior</strong><span>Porównaj profil podeszwy i kod modelu.</span></figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="poradniki">
+      <p class="eyebrow">03 / Przed zakupem</p>
+      <h2 id="poradniki">Cztery krótkie poradniki zakupowe</h2>
+      <div class="guides">
+        <article>
+          <h3>Linki do produktów i weryfikacja ofert</h3>
+          <p>Przy każdym wpisie w YoyBuy spreadsheet zapisz link źródłowy, nazwę sprzedawcy i datę sprawdzenia. Po ponownym otwarciu oferty porównaj kod produktu, dostępność rozmiaru i kolor z zapisaną wersją.</p>
+          <ul>
+            <li>Sprawdź, dokąd prowadzi przekierowanie linku.</li>
+            <li>Porównaj zdjęcia wariantu z opisem materiału.</li>
+            <li>Zapisz warunki zwrotu przed opłaceniem zamówienia.</li>
+          </ul>
+        </article>
+        <article>
+          <h3>Tabela rozmiarów butów i ubrań</h3>
+          <p>Porównaj długość wkładki w centymetrach z wkładką wygodnego buta. Przy bluzie zmierz szerokość pod pachami na płasko, a przy kurtce sprawdź też długość rękawa.</p>
+          <ul>
+            <li>Przy spodniach sprawdź obwód pasa i długość nogawki.</li>
+            <li>Przy komplecie porównaj wymiary góry i dołu osobno.</li>
+            <li>Przy czapce ustal zakres regulacji obwodu.</li>
+          </ul>
+        </article>
+        <article>
+          <h3>Zdjęcia QC z magazynu</h3>
+          <p>Poproś o zdjęcia kontrolne egzemplarza w wybranym wariancie. Do porównania odcienia przyda się światło dzienne, a do oceny rozmiaru zdjęcie z miarką w tej samej płaszczyźnie co produkt.</p>
+          <ul>
+            <li>Obuwie: widok obu podeszw, pięt i etykiety rozmiaru.</li>
+            <li>Odzież: zbliżenie szwów, nadruku i metki składu.</li>
+            <li>Akcesoria: stan zapięcia, krawędzi i powierzchni.</li>
+          </ul>
+        </article>
+        <article>
+          <h3>Koszt wysyłki do Polski</h3>
+          <p>W jednym zestawieniu zapisz cenę produktu, dostawę krajową, ewentualną opłatę pośrednika i transport międzynarodowy. Porównuj kwoty po przeliczeniu na PLN według tego samego kursu.</p>
+          <ul>
+            <li>Porównaj wagę rzeczywistą i wagę gabarytową paczki.</li>
+            <li>Przy łączeniu zamówień sprawdź nowe wymiary kartonu.</li>
+            <li>Uwzględnij możliwe opłaty importowe i koszt obsługi przesyłki.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="pytania">
+      <p class="eyebrow">04 / FAQ</p>
+      <h2 id="pytania">Najczęstsze pytania</h2>
+      <div class="faq">
+        <details open>
+          <summary>Co oznacza YoyBuy spreadsheet?</summary>
+          <p>To określenie listy odnośników i notatek o produktach, używanej do porównywania ofert przed zakupem. Ten poradnik odsyła do kategorii HipobuyFind.</p>
+        </details>
+        <details>
+          <summary>Co zrobić, gdy link do produktu przestał działać?</summary>
+          <p>Wróć do właściwej kategorii i wyszukaj pełną nazwę lub kod modelu. W nowej ofercie porównaj sprzedawcę, zdjęcia i dostępny wariant.</p>
+        </details>
+        <details>
+          <summary>Czy zdjęcie QC potwierdza autentyczność produktu?</summary>
+          <p>Nie. Zdjęcie QC pomaga ocenić widoczne szczegóły egzemplarza, takie jak kolor, szwy i oznaczenie rozmiaru. Pochodzenie produktu wymaga osobnego potwierdzenia.</p>
+        </details>
+        <details>
+          <summary>Jak oszacować koszt wysyłki do Polski?</summary>
+          <p>Wpisz kraj dostawy oraz wagę i wymiary spakowanej przesyłki do kalkulatora przewoźnika lub pośrednika. Do wyceny dodaj pozostałe koszty zakupu i sprawdź możliwe opłaty importowe.</p>
+        </details>
+        <details>
+          <summary>Jak porównać rozmiary podane przez dwóch sprzedawców?</summary>
+          <p>Użyj centymetrów i porównaj ten sam rodzaj pomiaru. Długość wkładki zestaw z długością wkładki, a szerokość bluzy mierzonej na płasko z analogicznym wymiarem.</p>
+        </details>
+      </div>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <div class="wrap">
+      <span class="note">Polski przewodnik po porównywaniu ofert</span>
+      <a class="logo" href="https://www.hipobuyfind.com">hipobuyfind.com</a>
+    </div>
+  </footer>
+</body>
+</html>
